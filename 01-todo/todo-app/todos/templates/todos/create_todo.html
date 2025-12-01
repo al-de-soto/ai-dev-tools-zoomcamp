@@ -1,0 +1,25 @@
+{% extends 'todos/base.html' %}
+
+{% block title %}Create TODO{% endblock %}
+
+{% block content %}
+<h2>Create New TODO</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="4"></textarea>
+    </div>
+    <div>
+        <label for="due_date">Due Date:</label>
+        <input type="date" id="due_date" name="due_date">
+    </div>
+    <button type="submit" class="btn btn-primary">Create TODO</button>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}
